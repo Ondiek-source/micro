@@ -1,142 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Micro Freelance Services</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Micro Freelance Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
+    header {
+      background: #020617;
+      padding: 25px;
+      text-align: center;
+    }
 
-body{
-font-family: Arial, sans-serif;
-background:#0f172a;
-color:#e2e8f0;
-margin:0;
-padding:0;
-}
+    header img {
+      width: 90px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
 
-header{
-background:#020617;
-padding:25px;
-text-align:center;
-}
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
 
-h1{
-margin:0;
-font-size:28px;
-}
+    p {
+      opacity: 0.8;
+    }
 
-p{
-opacity:0.8;
-}
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:30px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+    }
 
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-}
+    .card h3 {
+      margin-top: 0;
+    }
 
-.card h3{
-margin-top:0;
-}
+    .price {
+      color: #38bdf8;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-.price{
-color:#38bdf8;
-font-weight:bold;
-margin-bottom:10px;
-}
+    a.button {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
 
-a.button{
-display:inline-block;
-padding:8px 12px;
-background:#2563eb;
-color:white;
-text-decoration:none;
-border-radius:6px;
-margin-top:10px;
-}
-
-footer{
-text-align:center;
-padding:20px;
-opacity:0.6;
-}
-
-</style>
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.6;
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <img src="assets/reddit.png" alt="Reddit avatar" />
+    <h1>Micro Freelance Services</h1>
+    <p>by <strong>u/left_right_Rooster</strong></p>
+    <p>Contact: Reddit DM preferred. Discord or Telegram available after initial contact.</p>
+  </header>
 
-<header>
-<h1>Micro Freelance Services</h1>
-<p>Fixed-price online services. Contact via Reddit DM.</p>
-</header>
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <h3>ATS Resume Rewrite</h3>
+        <div class="price">$8</div>
+        <p>Resume rewrite with ATS optimization and cover letter template.</p>
+        <a class="button" href="gigs/resume.html">View Details</a>
+      </div>
 
-<div class="container">
+      <div class="card">
+        <h3>Short Form Video Editing</h3>
+        <div class="price">$7</div>
+        <p>Edit TikTok, Reels, or Shorts with captions and cuts.</p>
+        <a class="button" href="gigs/video.html">View Details</a>
+      </div>
 
-<div class="grid">
+      <div class="card">
+        <h3>Spreadsheet Cleanup</h3>
+        <div class="price">$6</div>
+        <p>Organize messy Excel or Google Sheets datasets.</p>
+        <a class="button" href="gigs/spreadsheet.html">View Details</a>
+      </div>
 
-<div class="card">
-<h3>ATS Resume Rewrite</h3>
-<div class="price">$8</div>
-<p>Resume rewrite with ATS optimization and cover letter template.</p>
-<a class="button" href="gigs/resume.html">View Details</a>
-</div>
+      <div class="card">
+        <h3>Virtual Assistant</h3>
+        <div class="price">$3/hour</div>
+        <p>Research, data entry, document formatting, and admin support.</p>
+        <a class="button" href="gigs/va.html">View Details</a>
+      </div>
 
-<div class="card">
-<h3>Short Form Video Editing</h3>
-<div class="price">$7</div>
-<p>Edit TikTok, Reels, or Shorts with captions and cuts.</p>
-<a class="button" href="gigs/video.html">View Details</a>
-</div>
+      <div class="card">
+        <h3>Website Security Scan</h3>
+        <div class="price">$8</div>
+        <p>Basic OWASP-style vulnerability scan and report.</p>
+        <a class="button" href="gigs/pentest.html">View Details</a>
+      </div>
 
-<div class="card">
-<h3>Spreadsheet Cleanup</h3>
-<div class="price">$6</div>
-<p>Organize messy Excel or Google Sheets datasets.</p>
-<a class="button" href="gigs/spreadsheet.html">View Details</a>
-</div>
+      <div class="card">
+        <h3>Website Technology Report</h3>
+        <div class="price">$5</div>
+        <p>Identify CMS, frameworks, analytics, and hosting technologies.</p>
+        <a class="button" href="gigs/techstack.html">View Details</a>
+      </div>
+    </div>
+  </div>
 
-<div class="card">
-<h3>Virtual Assistant</h3>
-<div class="price">$3/hour</div>
-<p>Research, data entry, document formatting, admin support.</p>
-<a class="button" href="gigs/va.html">View Details</a>
-</div>
-
-<div class="card">
-<h3>Website Security Scan</h3>
-<div class="price">$8</div>
-<p>Basic OWASP-style vulnerability scan and report.</p>
-<a class="button" href="gigs/pentest.html">View Details</a>
-</div>
-
-<div class="card">
-<h3>Website Technology Report</h3>
-<div class="price">$5</div>
-<p>Identify CMS, frameworks, analytics and hosting technologies.</p>
-<a class="button" href="gigs/techstack.html">View Details</a>
-</div>
-
-</div>
-
-</div>
-
-<footer>
-<p>Contact: Reddit DM | Optional Discord or Telegram</p>
-</footer>
-
+  <footer>
+    <p>Contact: Reddit DM | Optional Discord or Telegram</p>
+  </footer>
 </body>
 </html>
