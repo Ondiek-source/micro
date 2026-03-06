@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Short-Form Video Editing</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #1e293b;
+      --panel-2: #162033;
+      --text: #e2e8f0;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --accent: #38bdf8;
+      --border: rgba(148, 163, 184, 0.16);
+      --button: #2563eb;
+      --button-hover: #1d4ed8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Verdana, Geneva, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+
+    .topbar {
+      margin-bottom: 18px;
+    }
+
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) 300px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .main {
+      padding: 24px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.25;
+    }
+
+    .meta {
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .lead {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    details {
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-top: 14px;
+      overflow: hidden;
+    }
+
+    details[open] {
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 16px;
+      font-weight: bold;
+      color: var(--text);
+      position: relative;
+      font-size: 14px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      font-size: 20px;
+      color: var(--accent);
+    }
+
+    details[open] summary::after {
+      content: "–";
+    }
+
+    .content {
+      padding: 0 16px 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .small {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .sample-link {
+      display: block;
+      padding: 10px 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    video.sample-video {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+      background: #000;
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 1050px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .main {
+        order: 1;
+      }
+
+      .left {
+        order: 2;
+      }
+
+      .right {
+        order: 3;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <a href="../index.html">← Back to services</a>
+    </div>
+
+    <div class="layout">
+      <aside class="panel left">
+        <h2 class="section-title">FAQ</h2>
+
+        <details open>
+          <summary>What is included?</summary>
+          <div class="content">
+            One short-form video edit for TikTok, Instagram Reels, or YouTube Shorts. This includes trimming, pacing improvements, basic captions, and simple social-media-ready cleanup.
+          </div>
+        </details>
+
+        <details>
+          <summary>What video length do you support?</summary>
+          <div class="content">
+            <ul>
+              <li>Final edited video length: up to 60 seconds</li>
+              <li>Source footage: ideally up to 5 minutes</li>
+              <li>Best fit: talking head clips, advice clips, tutorials, podcast snippets, short commentary clips</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>What do you need from me?</summary>
+          <div class="content">
+            <ul>
+              <li>Raw video file or download link</li>
+              <li>Target platform: TikTok, Reels, or Shorts</li>
+              <li>Any caption preference or hook text if you already have one</li>
+              <li>Any reference video if you want a specific editing style</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>How many revisions are included?</summary>
+          <div class="content">
+            One correction revision is included for timing, text, or small cut adjustments.
+          </div>
+        </details>
+
+        <details>
+          <summary>What is not included?</summary>
+          <div class="content">
+            <ul>
+              <li>Advanced motion graphics</li>
+              <li>Custom animation</li>
+              <li>Complex visual effects</li>
+              <li>Long-form editing</li>
+              <li>Heavy color grading</li>
+            </ul>
+          </div>
+        </details>
+      </aside>
+
+      <main class="panel main">
+        <h1>[FOR HIRE] $7 Short-Form Video Editing</h1>
+        <div class="meta">Price: $7 fixed</div>
+        <div class="meta">Delivery: 24 hours</div>
+        <div class="meta">Payment: PayPal or USDC (Ethereum mainnet)</div>
+
+        <p class="lead">
+          This service is for buyers who want a raw clip turned into a cleaner, faster, more watchable short video for social media. The focus is on simple, effective editing that improves pacing, removes dead space, and makes the video easier to consume on TikTok, Instagram Reels, or YouTube Shorts.
+        </p>
+
+        <details open>
+          <summary>Service details</summary>
+          <div class="content">
+            <p>
+              The goal is not cinematic editing. The goal is a short, clean, platform-ready video that feels tighter and more engaging than the raw clip.
+            </p>
+            <ul>
+              <li>One short-form edit per order</li>
+              <li>Final output length up to 60 seconds</li>
+              <li>Basic cuts to remove pauses, filler, or weak pacing</li>
+              <li>Basic captioning or subtitle styling</li>
+              <li>Simple text hook at the beginning if needed</li>
+              <li>Export ready for vertical social platforms</li>
+              <li>Best suited for podcast clips, talking head videos, tips, tutorials, and commentary clips</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Deliverables</summary>
+          <div class="content">
+            <ul>
+              <li>1 final exported MP4 file</li>
+              <li>Vertical social format ready for posting</li>
+              <li>1 correction revision if needed</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Editing workflow</summary>
+          <div class="content">
+            <ul>
+              <li>Import raw footage</li>
+              <li>Trim pauses and unnecessary dead space</li>
+              <li>Improve pacing with simple cuts</li>
+              <li>Add basic captions</li>
+              <li>Add opening hook text if requested</li>
+              <li>Export in short-form vertical format</li>
+            </ul>
+            <p class="small">
+              This service is designed for fast, practical social edits, not high-end production work.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Milestones</summary>
+          <div class="content">
+            <ul>
+              <li><strong>Milestone 1 — Order confirmed:</strong> you send the footage, platform target, and instructions.</li>
+              <li><strong>Payment required:</strong> 40% before editing begins.</li>
+              <li><strong>Milestone 2 — Draft edit:</strong> first edited version is delivered for review.</li>
+              <li><strong>Milestone 3 — Final delivery:</strong> final MP4 is delivered after included revision.</li>
+              <li><strong>Payment required:</strong> remaining 60% before final file is released.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Payment policy</summary>
+          <div class="content">
+            <ul>
+              <li>Accepted payment: PayPal or USDC on Ethereum mainnet</li>
+              <li>This service uses milestone-based payment</li>
+              <li>Editing starts after milestone 1 payment and footage are received</li>
+              <li>Final exported file is released after final payment milestone</li>
+            </ul>
+            <p class="small">
+              If paying in USDC, send on Ethereum mainnet and account for ETH gas fees.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Add-ons</summary>
+          <div class="content">
+            <ul>
+              <li>Second short from the same footage: +$5</li>
+              <li>Additional caption styling or extra on-screen text: +$1</li>
+              <li>Bundle of 3 shorts from the same source content: custom quote</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Contact</summary>
+          <div class="content">
+            Reddit DM preferred. Discord or Telegram available after initial contact.
+          </div>
+        </details>
+      </main>
+
+      <aside class="panel right">
+        <h2 class="section-title">Samples</h2>
+
+        <details open>
+          <summary>Example work</summary>
+          <div class="content">
+            <a class="sample-link" href="../assets/samples/video/video-sample1.mp4" target="_blank">Sample Video 1</a>
+            <a class="sample-link" href="../assets/samples/video/video-sample2.mp4" target="_blank">Sample Video 2</a>
+            <a class="sample-link" href="../assets/samples/video/video-sample3.mp4" target="_blank">Sample Video 3</a>
+          </div>
+        </details>
+
+        <details>
+          <summary>Embedded preview</summary>
+          <div class="content">
+            <video class="sample-video" controls>
+              <source src="../assets/samples/video/video-sample1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </details>
+
+        <details>
+          <summary>Start order</summary>
+          <div class="content">
+            <p>Send this in Reddit DM:</p>
+            <ul>
+              <li>Service: Short-form video editing</li>
+              <li>Raw footage or file link</li>
+              <li>Target platform: TikTok / Reels / Shorts</li>
+              <li>Any caption or hook preference</li>
+              <li>Preferred payment method: PayPal or USDC</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Quick fit check</summary>
+          <div class="content">
+            <ul>
+              <li>Good fit if you need a fast, simple short-form edit.</li>
+              <li>Not a good fit if you need advanced motion graphics or long-form editing.</li>
+            </ul>
+          </div>
+        </details>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
