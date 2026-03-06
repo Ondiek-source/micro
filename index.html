@@ -67,6 +67,9 @@
       margin-bottom: 22px;
       color: var(--muted);
       line-height: 1.6;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
     }
 
     .grid {
@@ -85,12 +88,14 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.18s ease, border-color 0.18s ease;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      overflow: hidden;
     }
 
     .card:hover {
       transform: translateY(-3px);
       border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
     }
 
     .icon-box {
@@ -101,6 +106,7 @@
       height: 34px;
       color: var(--accent);
       opacity: 0.95;
+      z-index: 2;
     }
 
     .icon-box svg {
@@ -113,6 +119,8 @@
       margin: 0 42px 10px 0;
       font-size: 18px;
       line-height: 1.35;
+      position: relative;
+      z-index: 2;
     }
 
     .price {
@@ -120,6 +128,8 @@
       font-weight: bold;
       font-size: 18px;
       margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
     }
 
     .card p {
@@ -128,6 +138,8 @@
       line-height: 1.55;
       flex-grow: 1;
       padding-right: 4px;
+      position: relative;
+      z-index: 2;
     }
 
     a.button {
@@ -140,10 +152,34 @@
       border-radius: 8px;
       font-weight: 600;
       transition: background 0.18s ease;
+      position: relative;
+      z-index: 2;
     }
 
     a.button:hover {
       background: var(--button-hover);
+    }
+
+    .security-card {
+      background:
+        linear-gradient(rgba(45, 0, 0, 0.78), rgba(20, 0, 0, 0.88)),
+        url("assets/hacker.png") center/cover no-repeat;
+      border: 1px solid rgba(185, 28, 28, 0.45);
+    }
+
+    .security-card:hover {
+      border-color: rgba(239, 68, 68, 0.7);
+      box-shadow: 0 12px 26px rgba(127, 29, 29, 0.28);
+    }
+
+    .security-card .price,
+    .security-card .icon-box {
+      color: #f87171;
+    }
+
+    .security-card p,
+    .security-card .subtitle {
+      color: #fecaca;
     }
 
     footer {
@@ -161,6 +197,10 @@
       .card {
         min-height: 205px;
       }
+
+      .intro {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
@@ -173,10 +213,7 @@
   </header>
 
   <div class="container">
-    <p class="intro">
-      Fixed-price online services with clear scope, fast delivery, and simple communication.
-      Each service page lists pricing, limits, revisions, and what you need to send before work starts.
-    </p>
+    <p class="intro"><strong>Fast, fixed-price micro services — clear scope, fast delivery.</strong></p>
 
     <div class="grid">
       <div class="card">
@@ -244,7 +281,7 @@
         <a class="button" href="gigs/va.html">View Details</a>
       </div>
 
-      <div class="card">
+      <div class="card security-card">
         <div class="icon-box" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3l7 4v5c0 5 -3.5 8.5 -7 9c-3.5 -.5 -7 -4 -7 -9V7l7 -4z" />
@@ -331,6 +368,33 @@
         <div class="price">$9</div>
         <p>Basic Cloudflare setup, SSL/CDN check, and up to five DNS record fixes or changes.</p>
         <a class="button" href="gigs/dns-cloudflare.html">View Details</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-box" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 17v-6h10" />
+            <path d="M9 7v6h10" />
+            <path d="M5 12h.01" />
+          </svg>
+        </div>
+        <h3>robots.txt + Sitemap Fix</h3>
+        <div class="price">$5</div>
+        <p>Create or fix robots.txt and sitemap.xml for cleaner search engine crawling.</p>
+        <a class="button" href="gigs/robots.html">View Details</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-box" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8l9 6l9-6" />
+            <path d="M21 8v8a2 2 0 0 1 -2 2H5a2 2 0 0 1 -2 -2V8" />
+          </svg>
+        </div>
+        <h3>Email DNS Check</h3>
+        <div class="price">$6</div>
+        <p>Check SPF, DKIM, DMARC, and MX records for basic email deliverability issues.</p>
+        <a class="button" href="gigs/email-dns.html">View Details</a>
       </div>
     </div>
   </div>
