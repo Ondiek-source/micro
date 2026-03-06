@@ -1,297 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATS Resume Rewrite</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #1e293b;
+      --panel-2: #162033;
+      --text: #e2e8f0;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --accent: #38bdf8;
+      --border: rgba(148, 163, 184, 0.16);
+      --button: #2563eb;
+      --button-hover: #1d4ed8;
+    }
 
-<title>ATS Resume Rewrite</title>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
+    body {
+      margin: 0;
+      font-family: Verdana, Geneva, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
 
-body{
-font-family:Arial, sans-serif;
-background:#0f172a;
-color:#e2e8f0;
-margin:0;
-}
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
 
-.container{
-max-width:1400px;
-margin:auto;
-padding:30px;
-}
+    .topbar {
+      margin-bottom: 18px;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:260px 1fr 280px;
-gap:20px;
-}
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+    }
 
-.panel{
-background:#1e293b;
-border:1px solid rgba(148,163,184,0.16);
-border-radius:12px;
-padding:18px;
-}
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) 300px;
+      gap: 20px;
+      align-items: start;
+    }
 
-h1{
-margin-top:0;
-font-size:30px;
-}
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
 
-h2{
-font-size:18px;
-margin-top:20px;
-}
+    .main {
+      padding: 24px;
+    }
 
-p, li{
-line-height:1.6;
-color:#cbd5e1;
-}
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.25;
+    }
 
-.meta{
-color:#38bdf8;
-font-weight:bold;
-margin-bottom:6px;
-}
+    .meta {
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-ul{
-padding-left:20px;
-}
+    .lead {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 16px;
+      font-size: 14px;
+    }
 
-details{
-margin-top:10px;
-background:#162033;
-border-radius:8px;
-padding:10px;
-}
+    details {
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-top: 14px;
+      overflow: hidden;
+    }
 
-summary{
-cursor:pointer;
-font-weight:bold;
-}
+    details[open] {
+      border-color: rgba(56, 189, 248, 0.35);
+    }
 
-a{
-color:#38bdf8;
-text-decoration:none;
-}
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 16px;
+      font-weight: bold;
+      color: var(--text);
+      position: relative;
+      font-size: 14px;
+    }
 
-.button{
-display:inline-block;
-margin-top:15px;
-padding:10px 14px;
-background:#2563eb;
-color:white;
-border-radius:6px;
-}
+    summary::-webkit-details-marker {
+      display: none;
+    }
 
-.sample{
-display:block;
-padding:8px;
-margin-top:8px;
-background:#0f172a;
-border-radius:6px;
-}
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      font-size: 20px;
+      color: var(--accent);
+    }
 
-@media(max-width:1000px){
+    details[open] summary::after {
+      content: "–";
+    }
 
-.grid{
-grid-template-columns:1fr;
-}
+    .content {
+      padding: 0 16px 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
 
-}
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
 
-</style>
+    li {
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .small {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .sample-link {
+      display: block;
+      padding: 10px 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1050px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .main {
+        order: 1;
+      }
+
+      .left {
+        order: 2;
+      }
+
+      .right {
+        order: 3;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <div class="topbar">
+      <a href="../index.html">← Back to services</a>
+    </div>
 
-<div class="container">
+    <div class="layout">
+      <aside class="panel left">
+        <h2 class="section-title">FAQ</h2>
 
-<a href="../index.html">← Back to services</a>
+        <details open>
+          <summary>What is included?</summary>
+          <div class="content">
+            One ATS-focused resume rewrite for one target role, plus one matching cover letter template. The service supports U.S., UK, and EU application formatting.
+          </div>
+        </details>
 
-<br><br>
+        <details>
+          <summary>What format standards do you use?</summary>
+          <div class="content">
+            <ul>
+              <li>U.S. resumes are kept to 1–2 pages on 8.5 × 11 inch letter-size layout.</li>
+              <li>If page 2 is used, it should be properly filled and not left half-empty.</li>
+              <li>Spacing is single or 1.15 with standard 1-inch margins.</li>
+              <li>Readable professional fonts and consistent heading hierarchy are used.</li>
+              <li>UK CVs are formatted in a clean, standard UK style.</li>
+              <li>EU applications can be prepared in the current Europass CV format.</li>
+            </ul>
+          </div>
+        </details>
 
-<div class="grid">
+        <details>
+          <summary>How many revisions are included?</summary>
+          <div class="content">
+            Up to 3 targeting revisions for the chosen job posting, plus 1 correctional revision for typos, dates, or small factual fixes.
+          </div>
+        </details>
 
-<!-- FAQ -->
+        <details>
+          <summary>What do you need from me?</summary>
+          <div class="content">
+            <ul>
+              <li>Your current resume or work history notes</li>
+              <li>The target job posting or job description</li>
+              <li>Your preferred market: U.S., UK, or EU</li>
+              <li>Any achievements, metrics, or certifications you want highlighted</li>
+            </ul>
+          </div>
+        </details>
 
-<div class="panel">
+        <details>
+          <summary>What is not included?</summary>
+          <div class="content">
+            <ul>
+              <li>Unlimited rewrites</li>
+              <li>Executive or academic CVs beyond the stated scope</li>
+              <li>LinkedIn rewrite unless added separately</li>
+              <li>Career coaching or interview coaching</li>
+            </ul>
+          </div>
+        </details>
+      </aside>
 
-<h2>FAQ</h2>
+      <main class="panel main">
+        <h1>[FOR HIRE] $8 ATS Resume Rewrite + Cover Letter</h1>
+        <div class="meta">Price: $8 fixed</div>
+        <div class="meta">Delivery: 24 hours</div>
+        <div class="meta">Payment: PayPal or USDC (Ethereum mainnet)</div>
 
-<details open>
-<summary>What is included?</summary>
-<p>
-Resume rewrite up to 1,200 words including ATS optimization and
-a professional cover letter template.
-</p>
-</details>
+        <p class="lead">
+          This service is for buyers who need a resume that reads cleanly, matches a real job target, and looks professional without bloated formatting. The work focuses on clarity, keyword targeting, strong bullet writing, and a layout that is easy for recruiters and ATS systems to scan.
+        </p>
 
-<details>
-<summary>Do you support US and UK resumes?</summary>
-<p>
-Yes. Formatting and wording can be adapted for either US or UK
-job markets.
-</p>
-</details>
+        <details open>
+          <summary>Service details</summary>
+          <div class="content">
+            <p>
+              Your resume is rewritten around one target role. That means the language, keywords, summary, and bullet points are adjusted to fit the actual job you want, not left as a generic template.
+            </p>
+            <ul>
+              <li>Resume length is limited to 1–2 pages only.</li>
+              <li>If 2 pages are used, the second page should be properly filled.</li>
+              <li>U.S. resumes are prepared on U.S. letter size: 8.5 × 11 inches.</li>
+              <li>Spacing is single or 1.15 with standard 1-inch margins.</li>
+              <li>Professional typography is used throughout. Body text is typically 10–12 pt, with headings around 14–16 pt.</li>
+              <li>Formatting uses bold, italics, and color consistently rather than randomly.</li>
+              <li>Clear section headings and white space are used so the document is easy to scan quickly.</li>
+              <li>UK CV versions are formatted in standard UK style.</li>
+              <li>EU versions can be delivered in the current Europass CV format.</li>
+              <li>One cover letter template is included and aligned to the same market version where relevant.</li>
+            </ul>
+          </div>
+        </details>
 
-<details>
-<summary>How many revisions are included?</summary>
-<p>
-Up to 3 revisions for targeting improvements plus
-1 correctional revision for small fixes.
-</p>
-</details>
+        <details>
+          <summary>Deliverables</summary>
+          <div class="content">
+            <ul>
+              <li>1 rewritten resume</li>
+              <li>1 editable DOCX file</li>
+              <li>1 PDF file</li>
+              <li>1 cover letter template</li>
+            </ul>
+          </div>
+        </details>
 
-<details>
-<summary>Do you write resumes from scratch?</summary>
-<p>
-Yes, but you must provide previous experience information,
-education details, and job target information.
-</p>
-</details>
+        <details>
+          <summary>Milestones</summary>
+          <div class="content">
+            <ul>
+              <li><strong>Milestone 1 — Order confirmed:</strong> you send your current resume, target job, and required details.</li>
+              <li><strong>Payment required:</strong> 40% before work begins.</li>
+              <li><strong>Milestone 2 — Draft delivery:</strong> the rewritten resume draft is delivered for review.</li>
+              <li><strong>Milestone 3 — Final delivery:</strong> final PDF and DOCX files are delivered after included revisions.</li>
+              <li><strong>Payment required:</strong> remaining 60% before final files are released.</li>
+            </ul>
+          </div>
+        </details>
 
-<details>
-<summary>What is not included?</summary>
-<ul>
-<li>Unlimited rewrites</li>
-<li>Executive resumes over 1,200 words</li>
-<li>Career coaching</li>
-</ul>
-</details>
+        <details>
+          <summary>Payment policy</summary>
+          <div class="content">
+            <ul>
+              <li>Accepted payment: PayPal or USDC on Ethereum mainnet</li>
+              <li>This service uses milestone-based payment, not full upfront payment</li>
+              <li>Work begins after milestone 1 payment and requirements are received</li>
+              <li>Final editable and PDF files are released after the final payment milestone</li>
+            </ul>
+            <p class="small">
+              If paying in USDC, send on Ethereum mainnet and account for ETH gas fees.
+            </p>
+          </div>
+        </details>
 
-</div>
+        <details>
+          <summary>Add-ons</summary>
+          <div class="content">
+            <ul>
+              <li>Minimal ATS-safe visual styling: +$1</li>
+              <li>Second cover letter version for another region: +$2</li>
+              <li>LinkedIn About section rewrite: +$2</li>
+            </ul>
+          </div>
+        </details>
 
-<!-- MAIN -->
+        <details>
+          <summary>Contact</summary>
+          <div class="content">
+            Reddit DM preferred. Discord or Telegram available after initial contact.
+          </div>
+        </details>
+      </main>
 
-<div class="panel">
+      <aside class="panel right">
+        <h2 class="section-title">Samples</h2>
 
-<h1>[FOR HIRE] $8 ATS Resume Rewrite + Cover Letter</h1>
+        <details open>
+          <summary>Example work</summary>
+          <div class="content">
+            <a class="sample-link" href="../assets/samples/resume-sample1.pdf" target="_blank">Sample Resume 1</a>
+            <a class="sample-link" href="../assets/samples/resume-sample2.pdf" target="_blank">Sample Resume 2</a>
+            <a class="sample-link" href="../assets/samples/resume-sample3.pdf" target="_blank">Sample Resume 3</a>
+            <a class="sample-link" href="../assets/samples/cover-letter-sample.pdf" target="_blank">Cover Letter Sample</a>
+          </div>
+        </details>
 
-<div class="meta">Price: $8</div>
-<div class="meta">Delivery: 24 hours</div>
-<div class="meta">Payment: PayPal or USDC (Ethereum mainnet)</div>
+        <details>
+          <summary>Start order</summary>
+          <div class="content">
+            <p>Send this in Reddit DM:</p>
+            <ul>
+              <li>Service: Resume rewrite</li>
+              <li>Your current resume or work history</li>
+              <li>Target job posting</li>
+              <li>Preferred market: U.S., UK, or EU</li>
+              <li>Preferred payment method: PayPal or USDC</li>
+            </ul>
+          </div>
+        </details>
 
-<p>
-This service rewrites your resume to improve readability and
-align it with modern Applicant Tracking System (ATS) standards.
-Many resumes fail automated screening due to formatting issues,
-missing keywords, or unclear achievements.
-</p>
-
-<p>
-Your resume will be rewritten with clear structure,
-strong bullet points, and targeted language aligned to
-your job posting.
-</p>
-
-<h2>Service details</h2>
-
-<ul>
-<li>Resume rewrite up to 1,200 words</li>
-<li>ATS keyword optimization</li>
-<li>Professional formatting</li>
-<li>1 cover letter template</li>
-<li>Delivery in PDF and DOCX</li>
-</ul>
-
-<h2>Deliverables</h2>
-
-<ul>
-<li>Optimized resume</li>
-<li>Editable DOCX version</li>
-<li>PDF version</li>
-<li>Cover letter template</li>
-</ul>
-
-<details open>
-<summary>Milestones & Payment</summary>
-
-<ul>
-
-<li>
-<strong>Milestone 1 — Order confirmed</strong><br>
-Client sends resume, job posting and requirements.<br>
-Payment: <strong>40%</strong>
-</li>
-
-<li>
-<strong>Milestone 2 — Draft delivery</strong><br>
-Rewritten resume draft delivered.
-</li>
-
-<li>
-<strong>Milestone 3 — Final version</strong><br>
-Final version delivered after revisions.<br>
-Payment: <strong>60%</strong>
-</li>
-
-</ul>
-
-<p>
-Accepted payment methods:
-</p>
-
-<ul>
-<li>PayPal</li>
-<li>USDC (Ethereum mainnet)</li>
-</ul>
-
-</details>
-
-<h2>Contact</h2>
-
-<p>
-Reddit DM preferred. Discord or Telegram available after initial contact.
-</p>
-
-</div>
-
-<!-- SAMPLES -->
-
-<div class="panel">
-
-<h2>Samples</h2>
-
-<details open>
-
-<summary>Example resumes</summary>
-
-<a class="sample" href="../assets/samples/resume-sample1.pdf" target="_blank">
-Sample Resume 1
-</a>
-
-<a class="sample" href="../assets/samples/resume-sample2.pdf" target="_blank">
-Sample Resume 2
-</a>
-
-<a class="sample" href="../assets/samples/resume-sample3.pdf" target="_blank">
-Sample Resume 3
-</a>
-
-</details>
-
-<details>
-
-<summary>Start order</summary>
-
-<p>Send the following in Reddit DM:</p>
-
-<ul>
-<li>Service: Resume rewrite</li>
-<li>Your current resume</li>
-<li>Job posting link</li>
-<li>Preferred payment method</li>
-</ul>
-
-</details>
-
-</div>
-
-</div>
-
-</div>
-
+        <details>
+          <summary>Quick fit check</summary>
+          <div class="content">
+            <ul>
+              <li>Good fit if you want a targeted professional rewrite for one role.</li>
+              <li>Not a good fit if you want unlimited rewrites or broad career coaching.</li>
+            </ul>
+          </div>
+        </details>
+      </aside>
+    </div>
+  </div>
 </body>
 </html>
