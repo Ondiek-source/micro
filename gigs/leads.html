@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lead List Building</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #1e293b;
+      --panel-2: #162033;
+      --text: #e2e8f0;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --accent: #38bdf8;
+      --border: rgba(148, 163, 184, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Verdana, Geneva, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+
+    .topbar {
+      margin-bottom: 18px;
+    }
+
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) 300px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .main {
+      padding: 24px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.25;
+    }
+
+    .meta {
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .lead {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    details {
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-top: 14px;
+      overflow: hidden;
+    }
+
+    details[open] {
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 16px;
+      font-weight: bold;
+      color: var(--text);
+      position: relative;
+      font-size: 14px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      font-size: 20px;
+      color: var(--accent);
+    }
+
+    details[open] summary::after {
+      content: "–";
+    }
+
+    .content {
+      padding: 0 16px 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .small {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .sample-link {
+      display: block;
+      padding: 10px 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    img.sample-image {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+      border: 1px solid var(--border);
+      background: #0f172a;
+    }
+
+    @media (max-width: 1050px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .main {
+        order: 1;
+      }
+
+      .left {
+        order: 2;
+      }
+
+      .right {
+        order: 3;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <a href="../index.html">← Back to services</a>
+    </div>
+
+    <div class="layout">
+      <aside class="panel left">
+        <h2 class="section-title">FAQ</h2>
+
+        <details open>
+          <summary>What is included?</summary>
+          <div class="content">
+            One targeted lead research order with up to 50 business leads. The final deliverable is a clean spreadsheet based on your niche, location, and required data fields.
+          </div>
+        </details>
+
+        <details>
+          <summary>What fields can be included?</summary>
+          <div class="content">
+            <ul>
+              <li>Company name</li>
+              <li>Website</li>
+              <li>Contact name if publicly available</li>
+              <li>Email if publicly available</li>
+              <li>LinkedIn page or profile if available</li>
+              <li>Location</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>What do you need from me?</summary>
+          <div class="content">
+            <ul>
+              <li>Target niche or industry</li>
+              <li>Target location</li>
+              <li>Required number of leads, up to 50</li>
+              <li>Required fields</li>
+              <li>Optional example companies to calibrate the search</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>How many revisions are included?</summary>
+          <div class="content">
+            One correction revision is included for issues such as duplicates, wrong location matches, or incorrect websites.
+          </div>
+        </details>
+
+        <details>
+          <summary>What is not included?</summary>
+          <div class="content">
+            <ul>
+              <li>More than 50 leads in one order</li>
+              <li>Private or illegally collected contact data</li>
+              <li>Guaranteed personal emails where none are publicly available</li>
+              <li>Scraping behind logins or paywalls</li>
+            </ul>
+          </div>
+        </details>
+      </aside>
+
+      <main class="panel main">
+        <h1>[FOR HIRE] $20 Lead List Building (Up to 50 Targeted Leads)</h1>
+        <div class="meta">Price: $20 fixed</div>
+        <div class="meta">Delivery: 24–48 hours</div>
+        <div class="meta">Payment: PayPal or USDC (Ethereum mainnet)</div>
+
+        <p class="lead">
+          This service is for buyers who need a clean, targeted lead list without wasting time on random or low-quality results. I research businesses based on your niche, location, and field requirements, then deliver a structured spreadsheet that is easy to review and use.
+        </p>
+
+        <details open>
+          <summary>Service details</summary>
+          <div class="content">
+            <p>
+              The goal is not to dump random names into a sheet. The goal is to produce a more useful, narrowed lead list that matches the targeting criteria you provide.
+            </p>
+            <ul>
+              <li>Maximum 50 leads per order</li>
+              <li>Research based on niche, location, and requested fields</li>
+              <li>Sources may include Google search, LinkedIn, company websites, and public business directories</li>
+              <li>Publicly available emails only</li>
+              <li>Duplicate removal and final spreadsheet cleanup included</li>
+              <li>Best fit for agencies, recruiters, founders, and outreach campaigns that need a small targeted list</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Deliverables</summary>
+          <div class="content">
+            <ul>
+              <li>1 spreadsheet with up to 50 leads</li>
+              <li>Delivery in Google Sheets, Excel, or CSV format</li>
+              <li>Columns based on your requested data fields</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Research workflow</summary>
+          <div class="content">
+            <ul>
+              <li>Confirm niche, location, and lead criteria</li>
+              <li>Identify businesses matching the target profile</li>
+              <li>Verify active websites and basic company fit</li>
+              <li>Collect requested public data fields</li>
+              <li>Remove duplicates and clean the final sheet</li>
+              <li>Deliver the finished list in your preferred format</li>
+            </ul>
+            <p class="small">
+              This service is designed for focused list building, not bulk scraping or private data extraction.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Milestones</summary>
+          <div class="content">
+            <ul>
+              <li><strong>Milestone 1 — Order confirmed:</strong> you send the niche, location, lead count, and required fields.</li>
+              <li><strong>Payment required:</strong> 40% before research begins.</li>
+              <li><strong>Milestone 2 — Research completed:</strong> the lead sheet is prepared and checked for duplicates and fit.</li>
+              <li><strong>Milestone 3 — Final delivery:</strong> the spreadsheet is delivered in your requested format.</li>
+              <li><strong>Payment required:</strong> remaining 60% before final file is released.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Payment policy</summary>
+          <div class="content">
+            <ul>
+              <li>Accepted payment: PayPal or USDC on Ethereum mainnet</li>
+              <li>This service uses milestone-based payment</li>
+              <li>Research starts after milestone 1 payment and targeting details are received</li>
+              <li>Final spreadsheet is released after final payment milestone</li>
+            </ul>
+            <p class="small">
+              If paying in USDC, send on Ethereum mainnet and account for ETH gas fees.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Add-ons</summary>
+          <div class="content">
+            <ul>
+              <li>Additional field customization: included if agreed before research starts</li>
+              <li>Second list for another niche or location: separate order</li>
+              <li>More than 50 leads: separate quote</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Contact</summary>
+          <div class="content">
+            Reddit DM preferred. Discord or Telegram available after initial contact.
+          </div>
+        </details>
+      </main>
+
+      <aside class="panel right">
+        <h2 class="section-title">Samples</h2>
+
+        <details open>
+          <summary>Example work</summary>
+          <div class="content">
+            <a class="sample-link" href="../assets/samples/leads/leads-sample1.png" target="_blank">Lead List Sample 1</a>
+            <a class="sample-link" href="../assets/samples/leads/leads-sample2.png" target="_blank">Lead List Sample 2</a>
+          </div>
+        </details>
+
+        <details>
+          <summary>Preview</summary>
+          <div class="content">
+            <img class="sample-image" src="../assets/samples/leads/leads-sample1.png" alt="Lead list sample preview" />
+          </div>
+        </details>
+
+        <details>
+          <summary>Start order</summary>
+          <div class="content">
+            <p>Send this in Reddit DM:</p>
+            <ul>
+              <li>Service: Lead list building</li>
+              <li>Target niche or industry</li>
+              <li>Target location</li>
+              <li>Required number of leads, max 50</li>
+              <li>Required data fields</li>
+              <li>Preferred delivery format: Google Sheets / Excel / CSV</li>
+              <li>Preferred payment method: PayPal or USDC</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Quick fit check</summary>
+          <div class="content">
+            <ul>
+              <li>Good fit if you need a focused, manually researched lead list.</li>
+              <li>Not a good fit if you want bulk scraping, hidden data, or very large lead volumes.</li>
+            </ul>
+          </div>
+        </details>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
